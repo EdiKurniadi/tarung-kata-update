@@ -1,0 +1,766 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Open+Sans:300,400,600,700&display=swap&subset=cyrillic,cyrillic-ext);
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	-webkit-user-select: none; /* Untuk browser berbasis WebKit (Chrome, Safari) */
+	-moz-user-select: none; /* Untuk browser berbasis Gecko (Firefox) */
+	-ms-user-select: none; /* Untuk browser berbasis Trident (Internet Explorer/Edge) */
+	user-select: none; /* Standar CSS */
+}
+
+
+:root {
+	--primary-color : white;
+	--secondary-color: #414a5e;
+	--tersier-color: #dce1ed;
+	--border-box: #dee1e9;
+	--bg-exception-letter:  black;
+	--text-unguest-color: black;
+	--text-guest-color: white;
+	/*--button-color: blueviolet;*/
+	/*--count-down-color: blueviolet;*/
+	/*--button-text-color: white;*/
+}
+
+.dark-theme {
+	--primary-color : rgb(20,20,20);
+	--secondary-color:white;
+	--tersier-color: grey;
+	--border-box: rgba(200,200,200,0.5) ;
+	--bg-exception-letter:  grey;
+	--text-unguest-color: white;
+	--text-guest-color: white;
+}
+
+.main {
+	display: flex;
+	height: 100vh;
+	/*padding: 2vh 0;*/
+	/*padding-bottom: 8vh;*/
+	flex-direction: column;
+	/*border: 1px solid red;*/
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--primary-color);
+	background-color: -webkit-var(--primary-color);
+	/*background-color: white;*/
+	/*background-color: rgb(20, 20, 20);*/
+}
+
+.navbar {
+	width: 100vw;
+	height: 8vh;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+/*	border: 1px solid var(--border-box);*/
+	/*position: absolute;*/
+}
+
+#title-game {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: bold;
+	position: absolute;
+	left: 50%;
+}
+
+#logo {
+	/*width: 20rem;*/
+	height: 6vh;
+	position: relative;
+	left: -50%;
+	display: none;
+	/*top: 0;*/
+
+}
+
+.icon {
+	margin: 0 1rem;
+/*	display: inline-block;*/
+/*	color: var(--secondary-color);*/
+}
+
+
+.account {
+	font-size: 1.5rem;
+	font-weight: 700;
+	border: 1px solid black;
+	border-radius: 10px;
+/*	display: inline-block;*/
+/*	display: flex;*/
+/*	justify-content: space-between;*/
+	align-items: center;
+/*	vertical-align: middle;*/
+
+	padding: 0 5px;
+	cursor: pointer;
+}
+
+#username {
+	display: inline-block;
+	font-size: 1.3rem;
+/*	padding-bottom: 0.15rem;*/
+/*	text-align: center;*/
+/*	vertical-align: middle;*/
+/*	border: 1px solid red;*/
+/*	margin-bottom: 10px;*/
+
+}
+
+span .fa {
+	display: inline-block;
+	font-size: 1.5rem;
+	margin: 0.5rem;
+	cursor: pointer;
+}
+
+
+#container-words {
+	display: flex;
+	gap: 0.15rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#clock {
+	width: 10vh;
+	height: 10vh;
+	margin-bottom: 1.5rem;
+	background-color: var(--tersier-color);
+	border: 5px solid var(--tersier-color);
+	border-radius: 50%;
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: var(--secondary-color);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.word {
+	display: flex;
+	gap: 0.15rem;
+}
+ 
+.box-letter {
+	width: 50px;
+	height: 50px;
+	font-size: 1.5rem;
+	font-weight: 700;
+	border: 2px solid var(--border-box);
+/*	color: var(--text-unguest-color);*/
+	color: #dee1e9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	margin:2px;
+/*	background-color: #fbfcff;*/
+}
+
+.box-letter-filled {
+	border: 2px solid #414a5e;
+	color: #414a5e;
+}
+
+@keyframes PopIn {
+ from {
+  transform:scale(.8);
+  opacity:0
+ }
+ 40% {
+  transform:scale(1.1);
+  opacity:1
+ }
+}
+
+
+.box-letter-animate {
+ animation-name: PopIn;
+ animation-duration:300ms
+}
+
+@keyframes FlipIn {
+ 0% {
+  transform:rotateX(0)
+ }
+ 100% {
+  transform:rotateX(-90deg)
+ }
+}
+
+@keyframes FlipOut {
+ 0% {
+  transform:rotateX(-90deg)
+ }
+ 100% {
+  transform:rotateX(0)
+ }
+}
+
+.box-letter-flipIn {
+ animation-name: FlipIn;
+ animation-duration:250ms;
+}
+
+.box-letter-flipOut {
+	animation-name: FlipOut;
+	animation-duration: 100ms;
+}
+
+.Hijau,
+.green {
+	color: var(--text-guest-color) !important;
+	background-color: limegreen !important;
+	border: 2px solid limegreen !important;
+}
+
+.Jingga,
+.orange {
+	color: var(--text-guest-color) !important;
+	background-color: orange !important;
+	border: none;
+}
+
+.Merah,
+.red {
+	color: var(--text-guest-color) !important;
+	background-color: red !important;
+	border: none;
+}
+
+.Hitam,
+.black {
+	color: var(--text-guest-color) !important;
+	background-color: var(--bg-exception-letter) !important;
+	border: none;
+}
+
+
+#info-center {
+	color: var(--secondary-color);
+	text-align: center;
+	vertical-align: middle;
+	height: 5rem;
+	width: 80vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.info-center-box {
+	margin: auto;
+}
+
+.info-game {
+	color: var(--secondary-color);
+	text-align: center;
+	font-size: 1.1rem;
+	margin: 0;
+}
+
+.info-player {
+	display: none;
+	color: var(--secondary-color);
+	text-align: center;
+	font-size: 1.3rem;
+	font-weight: bold;
+	margin: 0;
+}
+
+
+.enemy-button {
+	border: 1px solid blue;
+	border-radius: 10px;
+	padding: 5px 10px;
+	background-color: rgba(0, 0, 255, 0.2);
+	margin: 5px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	justify-content: space-between;
+	align-items: center;
+	width: 100vw;
+}
+
+#guest {
+	padding: 0.5rem;
+	padding: 0.4rem;
+	font-size: 1.25rem;
+	outline: none;
+	border: 1px solid var(--border-box);
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+}
+
+#guest:focus {
+	box-shadow: 0px 0px 3px 1px var(--tersier-color);
+}
+
+#enter-button {
+	width: 10rem;
+	background-color: var(--tersier-color);
+	font-size: 1.25rem;
+	color: white;
+	padding: 0.4rem;
+	outline: 1px solid rgba(100,100,100, 0.5);
+}
+
+#answer {
+	color: var(--secondary-color);	
+}
+
+#meaning {
+	padding: 0 10vw;
+	text-align: center;
+	color: var(--secondary-color);
+}
+
+
+.keyboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: stretch;
+/*  max-width: 600px;*/
+  margin-bottom: 20px;
+}
+
+.keyboard {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+
+.key {
+/*	background-color: var(--border-box);
+	color: var(--secondary-color);*/
+
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: #dce1ed;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  margin: 3px;
+  font-weight: 700;
+  font-size: 17px;
+  color: #414a5e;
+  cursor: pointer;
+}
+
+.del-key,
+.enter-key {
+	/*font-size: 10px;*/
+/*	width: 60px;*/
+	flex: 2 1;
+}
+
+
+.setting-page {
+	z-index: 99;
+	/*animation: fadingin 0.5s forwards;*/
+	transition: 0.5s;
+	color: var(--secondary-color);
+	font-size: 1.25rem;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	/*opacity: 50%;*/
+	visibility: hidden;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary-color);
+	position: absolute; 
+	top: -100vh; 
+	left: 0vw;
+}
+
+.setting-item {
+	/*border: 1px solid red;*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--border-box);
+	/*margin-bottom: 0.5rem;*/
+	height: 3rem;
+}
+
+
+.how-to-play-page {
+	z-index: 99;
+	/*animation: fadingin 0.5s forwards;*/
+	transition: 0.5s;
+	color: var(--secondary-color);
+	font-size: 1rem;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	/*opacity: 50%;*/
+	visibility: hidden;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary-color);
+	position: absolute; 
+	top: -100vh; 
+	left: 0vw;
+}
+
+.word-example {
+	display: flex;
+	gap: 0.15rem;
+	/*transition: 1s;*/
+}
+ 
+.box-letter-example {
+	width: 50px;
+	height: 50px;
+	font-size: 1.25rem;
+	font-weight: 700;
+	border: 2px solid var(--border-box);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.statistic-page {
+	z-index: 99;
+	transition: 0.5s;
+	color: var(--secondary-color);
+	/*font-size: 1.25rem;*/
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	/*opacity: 50%;*/
+	visibility: visible;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary-color);
+	position: absolute;
+	/*border-bottom: 5px solid grey;*/
+	top: -100vh; 
+	left: 0;
+}
+
+/*.statistic-wrapper {
+	border-bottom: 5px solid grey;
+}*/
+
+.statistic-box-container {
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+	/*font-size: 1.05rem;*/
+}
+
+.statistic-box {
+	display: flex;
+	flex-direction: column;
+	/*gap: 0;*/
+	/*justify-content: space-between;*/
+	/*border: 1px solid red;*/
+}
+
+.statistic-number {
+	font-size: 2rem;
+}
+
+.statistic-descrption {
+	/*font-size: 0.5rem;*/
+	color: grey;
+}
+
+
+.page-body {
+	/*background-color: var(--primary-color); */
+	background-color: transparent;
+	width: 60vw; 
+	height: inherit; 
+	padding: 1rem; 
+	border-radius: 5px;  
+}
+
+
+.close-button {
+	color: var(--secondary-color);
+	text-align:right; 
+	cursor: pointer;
+	font-size: 1.25rem;
+}
+
+.title-menu {
+	color: var(--secondary-color);
+	text-align:center;
+	font-weight: bold
+}
+
+#myChart {
+	/*width: 80%;*/	
+	/*height: 40vh;*/
+}
+
+/*---------------pengaturan setting first config------------------*/
+
+
+.radio-group {
+    display: flex;
+    /*border: 1px solid red;*/
+    justify-content: center;
+    /*margin-bottom: 20px;*/
+    /*gap: 10px;*/
+}
+
+/* Gaya untuk container radio button */
+.radio-container {
+  display: block;
+  position: relative;
+  /*padding-left: 30px;*/
+  width: 100px;
+  margin: 12px;
+  /*height: 30px;*/
+  /*margin-bottom: 12px;*/
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Gaya untuk checkmark (lingkaran kosong) */
+.checkmark {
+/*   z-index : -1; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150%;
+  width: 100px;
+  background-color: #ddd;
+  /*vertical-align: middle;*/
+  padding: 5px;
+/*   margin: 2px; */
+   border-radius: 5px; 
+   font-weight: 700;
+   /*color: black;*/
+}
+
+/* Gaya untuk radio button yang dipilih */
+.radio-container input:checked ~ .checkmark {
+  background-color: #2196F3; /* Ganti dengan warna yang diinginkan */
+  color:white;
+}
+
+/* Gaya untuk ikon bendera */
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  margin-right: 10px;
+  /*vertical-align: middle;*/
+  /*display: inline;*/
+}
+
+@media only screen and (max-width: 767px) {
+  /* Gaya CSS untuk perangkat dengan lebar layar maksimum 767px */
+  /* Misalnya, gaya untuk ponsel */
+
+ 
+	.main {
+		display: flex;
+		height: 100vh;
+		/*padding: 2vh 0;*/
+		padding-bottom: 1.5vh;
+		flex-direction: column;
+		/*border: 1px solid red;*/
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--primary-color);
+	}
+
+	.page-body {
+		/*background-color: var(--primary-color); */
+		background-color: transparent;
+		width: 90vw; 
+		height: inherit; 
+		padding: 1rem; 
+		border-radius: 5px;  
+	}
+
+	.icon {
+		margin: 0 0.8rem;
+		color: var(--secondary-color);
+	}
+
+	.account {
+		font-size: 1.3rem;
+		border: 2px solid black;
+		border-radius: 10px;
+		padding: 0 5px;
+		cursor: pointer;
+	}
+
+	span .fa {
+		display: inline-block;
+		font-size: 1.3rem;
+		margin: 0.5rem;
+		cursor: pointer;
+	}
+
+
+	#clock {
+		width: 9vh;
+		height: 9vh;
+		margin-bottom: 0.7rem;
+		background-color: var(--tersier-color);
+		border: 5px solid var(--tersier-color);
+		border-radius: 50%;
+		font-size: 1.3rem;
+		color: var(--secondary-color);;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.word {
+		display: flex;
+		/*gap: 0.15rem;*/
+		/*transition: 1s;*/
+	}
+	 
+	.box-letter {
+		width: 12.5vw;
+		height: 12.5vw;
+		font-size: 1.3rem;
+		font-weight: 700;
+		border: 2px solid var(--border-box);
+		color: #dee1e9;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0.1rem;
+	}
+
+	.box-letter-filled {
+		border: 2px solid #414a5e;
+		color: #414a5e;
+	}
+
+	@keyframes PopIn {
+	 from {
+	  transform:scale(.8);
+	  opacity:0
+	 }
+	 40% {
+	  transform:scale(1.1);
+	  opacity:1
+	 }
+	}
+
+	.box-letter-animate {
+	 animation-name:PopIn;
+	 animation-duration:300ms
+	}
+
+	.Hijau,
+	.green {
+		color: var(--text-guest-color) !important;
+		background-color: limegreen !important;
+		border: none;
+	}
+
+	.Jingga,
+	.orange {
+		color: var(--text-guest-color) !important;
+		background-color: orange !important;
+		border: none;
+	}
+
+	.Merah,
+	.red {
+		color: var(--text-guest-color) !important;
+		background-color: red !important;
+		border: none;
+	}
+
+	.Hitam,
+	.black {
+		color: var(--text-guest-color) !important;
+		background-color: var(--bg-exception-letter) !important;
+		border: none;
+	}
+
+
+	#info-center {
+		color: var(--secondary-color);
+		text-align: center;
+	}
+
+	.info-game {
+		color: var(--secondary-color);
+		text-align: center;
+		font-size: 1.1rem;
+		margin: 0;
+	}
+
+	.info-player {
+		color: var(--secondary-color);
+		text-align: center;
+		font-size: 1.2rem;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	.keyboard {
+		display: flex;
+		justify-content: center;
+		margin: 0.15rem 0;
+		max-width: 95vw;
+		}
+
+	.key {
+		background-color: #dce1ed;
+		color: #414a5e;
+		border: 1px solid transparent;
+		margin: 0 2px;
+/*		width: 8vw;*/
+		display: flex;
+		flex: 1 1;
+		font-size: 15px;
+/*		height: 12vw;*/
+/*		line-height: 12vw;*/
+		text-align: center;
+		vertical-align: middle;
+		border-radius: 10%;
+		cursor: pointer;
+	}
+
+	.del-key,
+	.enter-key {
+		/*font-size: 10px;*/
+/*		width: 16vw;*/
+	flex: 2 1;
+	}
+
+
+}
